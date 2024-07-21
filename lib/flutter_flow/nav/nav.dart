@@ -152,6 +152,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['SolicitudEventoPorAplicante'],
             ),
           ),
+        ),
+        FFRoute(
+          name: 'Step4',
+          path: '/step4',
+          builder: (context, params) => Step4Widget(
+            prmIdSolicitud: params.getParam(
+              'prmIdSolicitud',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['SolicitudEventoPorAplicante'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

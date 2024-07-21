@@ -16,3 +16,4 @@ export '/administrador_inventario/administrador_inventario_widget.dart'
 export '/steps/step1/step1_widget.dart' show Step1Widget;
 export '/steps/step2/step2_widget.dart' show Step2Widget;
 export '/steps/step3/step3_widget.dart' show Step3Widget;
+export '/steps/step4/step4_widget.dart' show Step4Widget;

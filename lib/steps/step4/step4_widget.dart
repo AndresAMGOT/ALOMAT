@@ -1,15 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/cmp_product_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'step3_model.dart';
-export 'step3_model.dart';
+import 'step4_model.dart';
+export 'step4_model.dart';
 
-class Step3Widget extends StatefulWidget {
-  const Step3Widget({
+class Step4Widget extends StatefulWidget {
+  const Step4Widget({
     super.key,
     required this.prmIdSolicitud,
   });
@@ -17,22 +18,18 @@ class Step3Widget extends StatefulWidget {
   final DocumentReference? prmIdSolicitud;
 
   @override
-  State<Step3Widget> createState() => _Step3WidgetState();
+  State<Step4Widget> createState() => _Step4WidgetState();
 }
 
-class _Step3WidgetState extends State<Step3Widget> {
-  late Step3Model _model;
+class _Step4WidgetState extends State<Step4Widget> {
+  late Step4Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Step3Model());
-
-    _model.txtTimeTextController ??=
-        TextEditingController(text: dateTimeFormat('d/M/y', _model.datePicked));
-    _model.txtTimeFocusNode ??= FocusNode();
+    _model = createModel(context, () => Step4Model());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -211,7 +208,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             context.pushNamed(
-                              'Step3',
+                              'Step4',
                               queryParameters: {
                                 'prmIdSolicitud': serializeParam(
                                   widget.prmIdSolicitud,
@@ -383,7 +380,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Paso 3 de 5',
+                        'Paso 4 de 5',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Source Sans 3',
                               color: const Color(0xFFFFE1AF),
@@ -404,221 +401,84 @@ class _Step3WidgetState extends State<Step3Widget> {
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 5.0),
+                        children: [],
+                      ),
+                      StreamBuilder<List<ProductoRecord>>(
+                        stream: queryProductoRecord(
+                          queryBuilder: (productoRecord) =>
+                              productoRecord.orderBy('Nombre'),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
                               child: SizedBox(
-                                width: 370.0,
-                                child: TextFormField(
-                                  controller: _model.txtTimeTextController,
-                                  focusNode: _model.txtTimeFocusNode,
-                                  autofocus: true,
-                                  autofillHints: const [AutofillHints.email],
-                                  readOnly: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Fecha Evento',
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        color: Color(0xFFE8E6D7),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        color: Color(0xBC00040F),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: const Color(0xFFBF9E75),
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        letterSpacing: 0.0,
-                                      ),
-                                  keyboardType: TextInputType.emailAddress,
-                                  validator: _model
-                                      .txtTimeTextControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 350.0,
-                            height: 450.0,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFF3DDB6),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 250.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            final datePickedDate =
-                                                await showDatePicker(
-                                              context: context,
-                                              initialDate: getCurrentTimestamp,
-                                              firstDate: getCurrentTimestamp,
-                                              lastDate: DateTime(2050),
-                                              builder: (context, child) {
-                                                return wrapInMaterialDatePickerTheme(
-                                                  context,
-                                                  child!,
-                                                  headerBackgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  headerForegroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .info,
-                                                  headerTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                'Outfit',
-                                                            fontSize: 32.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                  pickerBackgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  pickerForegroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  selectedDateTimeBackgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  selectedDateTimeForegroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .info,
-                                                  actionButtonForegroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  iconSize: 24.0,
-                                                );
-                                              },
-                                            );
+                            );
+                          }
+                          List<ProductoRecord> listViewProductoRecordList =
+                              snapshot.data!;
 
-                                            if (datePickedDate != null) {
-                                              safeSetState(() {
-                                                _model.datePicked = DateTime(
-                                                  datePickedDate.year,
-                                                  datePickedDate.month,
-                                                  datePickedDate.day,
-                                                );
-                                              });
-                                            }
-                                            setState(() {
-                                              _model.txtTimeTextController
-                                                      ?.text =
-                                                  _model.datePicked!.toString();
-                                              _model.txtTimeTextController
-                                                      ?.selection =
-                                                  TextSelection.collapsed(
-                                                      offset: _model
-                                                          .txtTimeTextController!
-                                                          .text
-                                                          .length);
-                                            });
-                                          },
-                                          text: 'Fecha Evento',
-                                          icon: const Icon(
-                                            Icons.calendar_month,
-                                            size: 15.0,
-                                          ),
-                                          options: FFButtonOptions(
-                                            height: 40.0,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: Colors.white,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: const BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewProductoRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewProductoRecord =
+                                  listViewProductoRecordList[listViewIndex];
+                              return StreamBuilder<List<ProductoRecord>>(
+                                stream: queryProductoRecord(
+                                  singleRecord: true,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                                    );
+                                  }
+                                  List<ProductoRecord>
+                                      cmpProductProductoRecordList =
+                                      snapshot.data!;
+
+                                  // Return an empty Container when the item does not exist.
+                                  if (snapshot.data!.isEmpty) {
+                                    return Container();
+                                  }
+                                  final cmpProductProductoRecord =
+                                      cmpProductProductoRecordList.isNotEmpty
+                                          ? cmpProductProductoRecordList.first
+                                          : null;
+                                  return CmpProductWidget(
+                                    key: Key(
+                                        'Keywxh_${listViewIndex}_of_${listViewProductoRecordList.length}'),
+                                    prmProduct: cmpProductProductoRecord!,
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        },
                       ),
                       Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
@@ -666,44 +526,8 @@ class _Step3WidgetState extends State<Step3Widget> {
                                     ),
                                   ),
                                   FFButtonWidget(
-                                    onPressed: () async {
-                                      if (_model.txtTimeTextController.text !=
-                                              '') {
-                                        await widget.prmIdSolicitud!.update(
-                                            createSolicitudEventoPorAplicanteRecordData(
-                                          fechaEvento:
-                                              _model.txtTimeTextController.text,
-                                        ));
-
-                                        context.pushNamed(
-                                          'Step4',
-                                          queryParameters: {
-                                            'prmIdSolicitud': serializeParam(
-                                              widget.prmIdSolicitud,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'La fecha del evento es requerida.',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                      }
+                                    onPressed: () {
+                                      print('btnConfirmar pressed ...');
                                     },
                                     text: 'Siguiente',
                                     options: FFButtonOptions(
