@@ -11,6 +11,7 @@ import 'schema/users_record.dart';
 import 'schema/producto_record.dart';
 import 'schema/producto_por_aplicacion_record.dart';
 import 'schema/forma_de_pago_record.dart';
+import 'schema/resenas_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -25,6 +26,7 @@ export 'schema/users_record.dart';
 export 'schema/producto_record.dart';
 export 'schema/producto_por_aplicacion_record.dart';
 export 'schema/forma_de_pago_record.dart';
+export 'schema/resenas_record.dart';
 
 /// Functions to query SolicitudEventoPorAplicanteRecords (as a Stream and as a Future).
 Future<int> querySolicitudEventoPorAplicanteRecordCount({
@@ -245,6 +247,43 @@ Future<List<FormaDePagoRecord>> queryFormaDePagoRecordOnce({
     queryCollectionOnce(
       FormaDePagoRecord.collection,
       FormaDePagoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ResenasRecords (as a Stream and as a Future).
+Future<int> queryResenasRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ResenasRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ResenasRecord>> queryResenasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ResenasRecord.collection,
+      ResenasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ResenasRecord>> queryResenasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ResenasRecord.collection,
+      ResenasRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

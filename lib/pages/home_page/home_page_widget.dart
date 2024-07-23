@@ -246,6 +246,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Resenas');
+                      },
+                      child: ListTile(
+                        leading: const Icon(
+                          Icons.star_rounded,
+                        ),
+                        title: Text(
+                          'Reseñas',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        dense: false,
+                      ),
+                    ),
                     if (valueOrDefault<bool>(
                             currentUserDocument?.isAdmin, false) ||
                         valueOrDefault<bool>(

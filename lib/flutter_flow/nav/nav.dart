@@ -95,31 +95,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CreateAccountWidget(),
         ),
         FFRoute(
-          name: 'InvCRUD',
-          path: '/invCRUD',
-          builder: (context, params) => const InvCRUDWidget(),
-        ),
-        FFRoute(
-          name: 'InvCRUD_Create',
-          path: '/invCRUDCreate',
-          builder: (context, params) => const InvCRUDCreateWidget(),
-        ),
-        FFRoute(
-          name: 'InvCRUD_Read',
-          path: '/invCRUDRead',
-          builder: (context, params) => const InvCRUDReadWidget(),
-        ),
-        FFRoute(
-          name: 'InvCRUD_Update',
-          path: '/invCRUDUpdate',
-          builder: (context, params) => const InvCRUDUpdateWidget(),
-        ),
-        FFRoute(
-          name: 'InvCRUD_Delete',
-          path: '/invCRUDDelete',
-          builder: (context, params) => const InvCRUDDeleteWidget(),
-        ),
-        FFRoute(
           name: 'AdministradorInventario',
           path: '/administradorInventario',
           builder: (context, params) => const AdministradorInventarioWidget(),
@@ -164,6 +139,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               collectionNamePath: ['SolicitudEventoPorAplicante'],
             ),
           ),
+        ),
+        FFRoute(
+          name: 'Resenas',
+          path: '/resenas',
+          builder: (context, params) => const ResenasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
