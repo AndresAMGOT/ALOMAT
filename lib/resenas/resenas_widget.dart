@@ -357,60 +357,63 @@ class _ResenasWidgetState extends State<ResenasWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: const Color(0xFFBF9E75),
-                          borderRadius: 20.0,
-                          borderWidth: 2.0,
-                          buttonSize: 40.0,
-                          fillColor: const Color(0xFFF3E2CE),
-                          icon: Icon(
-                            Icons.keyboard_return,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            context.safePop();
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          height: 80.0,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF00070F),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(16.0),
-                              bottomRight: Radius.circular(16.0),
-                              topLeft: Radius.circular(0.0),
-                              topRight: Radius.circular(0.0),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              30.0, 0.0, 0.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderColor: const Color(0xFFBF9E75),
+                            borderRadius: 20.0,
+                            borderWidth: 2.0,
+                            buttonSize: 40.0,
+                            fillColor: const Color(0xFFF3E2CE),
+                            icon: Icon(
+                              Icons.keyboard_return,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
                             ),
-                          ),
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Reseñas',
-                              style: FlutterFlowTheme.of(context)
-                                  .displaySmall
-                                  .override(
-                                    fontFamily: 'Source Sans 3',
-                                    color: const Color(0xFFFFE1AF),
-                                    fontSize: 25.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
+                            onPressed: () async {
+                              context.safePop();
+                            },
                           ),
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: 80.0,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF00070F),
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(16.0),
+                                bottomRight: Radius.circular(16.0),
+                                topLeft: Radius.circular(0.0),
+                                topRight: Radius.circular(0.0),
+                              ),
+                            ),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Reseñas',
+                                style: FlutterFlowTheme.of(context)
+                                    .displaySmall
+                                    .override(
+                                      fontFamily: 'Source Sans 3',
+                                      color: const Color(0xFFFFE1AF),
+                                      fontSize: 25.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Text(
                     '¡Tu opinión es muy importante para nosotros!\n\nEn ALOMAT, valoramos cada una de tus opiniones y comentarios. Con tu ayuda, podremos mejorar continuamente y ofrecerte la mejor experiencia posible.',
