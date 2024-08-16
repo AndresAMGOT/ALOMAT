@@ -7,7 +7,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'resenas_model.dart';
 export 'resenas_model.dart';
 
@@ -49,7 +52,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: const Color(0xFF00070F),
+            backgroundColor: Color(0xFF00070F),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -66,12 +69,10 @@ class _ResenasWidgetState extends State<ResenasWidget> {
         List<ResenasRecord> resenasResenasRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: const Color(0xFF00070F),
+            backgroundColor: Color(0xFF00070F),
             drawer: Drawer(
               elevation: 16.0,
               child: Column(
@@ -79,7 +80,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -106,7 +107,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +117,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                             width: 75.0,
                             height: 75.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
@@ -130,7 +131,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -168,7 +169,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -180,7 +181,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 currentUserDocument?.isUser, false))
                           AuthUserStreamWidget(
                             builder: (context) => ListTile(
-                              leading: const Icon(
+                              leading: Icon(
                                 Icons.person,
                               ),
                               title: Text(
@@ -209,7 +210,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 context.pushNamed('HomePage');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.home,
                                 ),
                                 title: Text(
@@ -238,7 +239,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 context.pushNamed('Step1');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.event_note,
                                 ),
                                 title: Text(
@@ -267,7 +268,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 context.pushNamed('Resenas');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.add_shopping_cart,
                                 ),
                                 title: Text(
@@ -296,7 +297,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 context.pushNamed('Resenas');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.star_rounded,
                                 ),
                                 title: Text(
@@ -330,7 +331,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 context.goNamedAuth('Login', context.mounted);
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.login_rounded,
                                 ),
                                 title: Text(
@@ -358,19 +359,19 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               30.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: const Color(0xFFBF9E75),
+                            borderColor: Color(0xFFBF9E75),
                             borderRadius: 20.0,
                             borderWidth: 2.0,
                             buttonSize: 40.0,
-                            fillColor: const Color(0xFFF3E2CE),
+                            fillColor: Color(0xFFF3E2CE),
                             icon: Icon(
                               Icons.keyboard_return,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -385,7 +386,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                           child: Container(
                             width: double.infinity,
                             height: 80.0,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               color: Color(0xFF00070F),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -394,9 +395,9 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Reseñas',
@@ -404,7 +405,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Source Sans 3',
-                                      color: const Color(0xFFFFE1AF),
+                                      color: Color(0xFFFFE1AF),
                                       fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -420,7 +421,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFFFFE1AF),
+                          color: Color(0xFFFFE1AF),
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -436,7 +437,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.995,
                                 height: 300.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFF00070F),
                                 ),
                                 child: Column(
@@ -448,9 +449,9 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 10.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -458,7 +459,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                                 focusNode: _model
                                                     .txtComentarioFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -478,7 +479,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -488,7 +489,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -523,7 +524,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -550,13 +551,13 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
                                                     .dDCalificacionValueController ??=
                                                 FormFieldController<String>(
                                                     null),
-                                            options: const [
+                                            options: [
                                               'Muy Satisfecho',
                                               'Satisfecho',
                                               'Regular',
@@ -583,7 +584,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                                       .alternate,
                                               size: 24.0,
                                             ),
-                                            fillColor: const Color(0xFFBF9E75),
+                                            fillColor: Color(0xFFBF9E75),
                                             elevation: 2.0,
                                             borderColor:
                                                 FlutterFlowTheme.of(context)
@@ -591,7 +592,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 4.0, 16.0, 4.0),
                                             hidesUnderline: true,
                                             isOverButton: true,
@@ -615,10 +616,12 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(14.0),
+                        padding: EdgeInsets.all(14.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if ((_model.txtComentarioTextController.text !=
+                                        null &&
+                                    _model.txtComentarioTextController.text !=
                                         '') &&
                                 (_model.dDCalificacionValue != null &&
                                     _model.dDCalificacionValue != '')) {
@@ -642,7 +645,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -657,7 +660,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).warning,
                                 ),
@@ -665,29 +668,29 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                             }
                           },
                           text: 'Agregar Reseña',
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.add_box,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFFF3E2CE),
+                            color: Color(0xFFF3E2CE),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  color: const Color(0xFF00070F),
+                                  color: Color(0xFF00070F),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFBF9E75),
                               width: 2.0,
                             ),
@@ -774,10 +777,10 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                           dataRowBuilder: (resenasItem, resenasIndex, selected,
                                   onSelectChanged) =>
                               DataRow(
-                            color: WidgetStateProperty.all(
+                            color: MaterialStateProperty.all(
                               resenasIndex % 2 == 0
-                                  ? const Color(0xFFF3E2CE)
-                                  : const Color(0xDAF3E2CE),
+                                  ? Color(0xFFF3E2CE)
+                                  : Color(0xDAF3E2CE),
                             ),
                             cells: [
                               Text(
@@ -812,7 +815,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                               ),
                               Text(
                                 dateTimeFormat(
-                                    'd/M/y', resenasItem.fechaCreacion!),
+                                    "d/M/y", resenasItem.fechaCreacion!),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -830,7 +833,7 @@ class _ResenasWidgetState extends State<ResenasWidget> {
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           columnSpacing: 10.0,
-                          headingRowColor: const Color(0xFFBF9E75),
+                          headingRowColor: Color(0xFFBF9E75),
                           borderRadius: BorderRadius.circular(8.0),
                           addHorizontalDivider: true,
                           addTopAndBottomDivider: false,

@@ -1,8 +1,12 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'add_count_request_product_model.dart';
 export 'add_count_request_product_model.dart';
 
@@ -75,11 +79,11 @@ class _AddCountRequestProductWidgetState
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
-                      widget.image!,
+                      widget!.image!,
                       width: 300.0,
                       height: 200.0,
                       fit: BoxFit.cover,
@@ -94,10 +98,10 @@ class _AddCountRequestProductWidgetState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Text(
                   valueOrDefault<String>(
-                    widget.name,
+                    widget!.name,
                     '\"\"',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -115,14 +119,14 @@ class _AddCountRequestProductWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtCantidadTextController,
                       focusNode: _model.txtCantidadFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Cantidad',
@@ -134,14 +138,14 @@ class _AddCountRequestProductWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -162,7 +166,7 @@ class _AddCountRequestProductWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -178,20 +182,20 @@ class _AddCountRequestProductWidgetState
             ],
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       await ProductoPorAplicacionRecord.collection
                           .doc()
                           .set(createProductoPorAplicacionRecordData(
-                            producto: widget.product?.reference,
-                            solicitud: widget.prmsolicitudId,
+                            producto: widget!.product?.reference,
+                            solicitud: widget!.prmsolicitudId,
                             cantidad: int.tryParse(
                                 _model.txtCantidadTextController.text),
                           ));
@@ -204,8 +208,8 @@ class _AddCountRequestProductWidgetState
                                   .primaryBackground,
                             ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
-                          backgroundColor: const Color(0xFF1ABD00),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Color(0xFF1ABD00),
                         ),
                       );
                       setState(() {
@@ -216,32 +220,32 @@ class _AddCountRequestProductWidgetState
                         'Step4',
                         queryParameters: {
                           'prmIdSolicitud': serializeParam(
-                            widget.prmsolicitudId,
+                            widget!.prmsolicitudId,
                             ParamType.DocumentReference,
                           ),
                         }.withoutNulls,
                       );
                     },
                     text: 'Agregar',
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.add_circle_outline_rounded,
                       size: 15.0,
                     ),
                     options: FFButtonOptions(
                       height: 40.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0xFFF3E2CE),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFFF3E2CE),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
-                                color: const Color(0xFF02152B),
+                                color: Color(0xFF02152B),
                                 letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Color(0xFFBF9E75),
                         width: 3.0,
                       ),

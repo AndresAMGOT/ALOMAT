@@ -1,7 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -35,19 +38,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFF00070F),
+        backgroundColor: Color(0xFF00070F),
         drawer: Drawer(
           elevation: 16.0,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +74,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +84,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         width: 75.0,
                         height: 75.0,
                         clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
@@ -96,7 +97,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +132,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
@@ -143,7 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             currentUserDocument?.isUser, false))
                       AuthUserStreamWidget(
                         builder: (context) => ListTile(
-                          leading: const Icon(
+                          leading: Icon(
                             Icons.person,
                           ),
                           title: Text(
@@ -172,7 +173,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             context.pushNamed('HomePage');
                           },
                           child: ListTile(
-                            leading: const Icon(
+                            leading: Icon(
                               Icons.home,
                             ),
                             title: Text(
@@ -201,7 +202,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             context.pushNamed('Step1');
                           },
                           child: ListTile(
-                            leading: const Icon(
+                            leading: Icon(
                               Icons.event_note,
                             ),
                             title: Text(
@@ -230,7 +231,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             context.pushNamed('AdministradorInventario');
                           },
                           child: ListTile(
-                            leading: const Icon(
+                            leading: Icon(
                               Icons.add_shopping_cart,
                             ),
                             title: Text(
@@ -255,7 +256,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         context.pushNamed('Resenas');
                       },
                       child: ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           Icons.star_rounded,
                         ),
                         title: Text(
@@ -287,7 +288,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             context.goNamedAuth('Login', context.mounted);
                           },
                           child: ListTile(
-                            leading: const Icon(
+                            leading: Icon(
                               Icons.login_rounded,
                             ),
                             title: Text(
@@ -310,9 +311,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           ),
         ),
         appBar: AppBar(
-          backgroundColor: const Color(0xFF00070F),
+          backgroundColor: Color(0xFF00070F),
           automaticallyImplyLeading: true,
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 4.0,
         ),

@@ -10,7 +10,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'administrador_inventario_model.dart';
 export 'administrador_inventario_model.dart';
 
@@ -72,7 +75,7 @@ class _AdministradorInventarioWidgetState
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: const Color(0xFF00070F),
+            backgroundColor: Color(0xFF00070F),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -90,12 +93,10 @@ class _AdministradorInventarioWidgetState
             snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: const Color(0xFF00070F),
+            backgroundColor: Color(0xFF00070F),
             drawer: Drawer(
               elevation: 16.0,
               child: Column(
@@ -103,7 +104,7 @@ class _AdministradorInventarioWidgetState
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -130,7 +131,7 @@ class _AdministradorInventarioWidgetState
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +141,7 @@ class _AdministradorInventarioWidgetState
                             width: 75.0,
                             height: 75.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
@@ -154,7 +155,7 @@ class _AdministradorInventarioWidgetState
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +193,7 @@ class _AdministradorInventarioWidgetState
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -204,7 +205,7 @@ class _AdministradorInventarioWidgetState
                                 currentUserDocument?.isUser, false))
                           AuthUserStreamWidget(
                             builder: (context) => ListTile(
-                              leading: const Icon(
+                              leading: Icon(
                                 Icons.person,
                               ),
                               title: Text(
@@ -233,7 +234,7 @@ class _AdministradorInventarioWidgetState
                                 context.pushNamed('HomePage');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.home,
                                 ),
                                 title: Text(
@@ -262,7 +263,7 @@ class _AdministradorInventarioWidgetState
                                 context.pushNamed('Step1');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.event_note,
                                 ),
                                 title: Text(
@@ -291,7 +292,7 @@ class _AdministradorInventarioWidgetState
                                 context.pushNamed('AdministradorInventario');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.add_shopping_cart,
                                 ),
                                 title: Text(
@@ -320,7 +321,7 @@ class _AdministradorInventarioWidgetState
                                 context.pushNamed('Resenas');
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.star_rounded,
                                 ),
                                 title: Text(
@@ -354,7 +355,7 @@ class _AdministradorInventarioWidgetState
                                 context.goNamedAuth('Login', context.mounted);
                               },
                               child: ListTile(
-                                leading: const Icon(
+                                leading: Icon(
                                   Icons.login_rounded,
                                 ),
                                 title: Text(
@@ -377,9 +378,9 @@ class _AdministradorInventarioWidgetState
               ),
             ),
             appBar: AppBar(
-              backgroundColor: const Color(0xFF00070F),
+              backgroundColor: Color(0xFF00070F),
               automaticallyImplyLeading: true,
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 4.0,
             ),
@@ -400,7 +401,7 @@ class _AdministradorInventarioWidgetState
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.5,
                                 height: 300.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFF00070F),
                                 ),
                                 child: Column(
@@ -412,9 +413,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -422,7 +423,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode:
                                                     _model.txtCodeFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -442,7 +443,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -452,7 +453,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -487,7 +488,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -514,9 +515,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -524,7 +525,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode: _model
                                                     .txtNameProductFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -544,7 +545,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -554,7 +555,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -589,7 +590,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -616,9 +617,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -626,7 +627,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode: _model
                                                     .txtDescriptionFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -646,7 +647,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -656,7 +657,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -691,7 +692,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -718,9 +719,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -728,7 +729,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode:
                                                     _model.txtCantidadFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -748,7 +749,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -758,7 +759,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -793,7 +794,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -830,7 +831,7 @@ class _AdministradorInventarioWidgetState
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.5,
                                 height: 300.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFF00070F),
                                 ),
                                 child: Column(
@@ -842,9 +843,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -852,7 +853,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode:
                                                     _model.txtColorFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -872,7 +873,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -882,7 +883,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -917,7 +918,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -944,9 +945,9 @@ class _AdministradorInventarioWidgetState
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 16.0),
-                                            child: SizedBox(
+                                            child: Container(
                                               width: 370.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -954,7 +955,7 @@ class _AdministradorInventarioWidgetState
                                                 focusNode:
                                                     _model.txtPrecioFocusNode,
                                                 autofocus: true,
-                                                autofillHints: const [
+                                                autofillHints: [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -974,7 +975,7 @@ class _AdministradorInventarioWidgetState
                                                           ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFE8E6D7),
                                                       width: 2.0,
                                                     ),
@@ -984,7 +985,7 @@ class _AdministradorInventarioWidgetState
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xBC00040F),
                                                       width: 2.0,
                                                     ),
@@ -1019,7 +1020,7 @@ class _AdministradorInventarioWidgetState
                                                             12.0),
                                                   ),
                                                   filled: true,
-                                                  fillColor: const Color(0xFFBF9E75),
+                                                  fillColor: Color(0xFFBF9E75),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1045,7 +1046,7 @@ class _AdministradorInventarioWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   3.0, 0.0, 0.0, 3.0),
                                           child: StreamBuilder<
                                               List<CategoriaProductosRecord>>(
@@ -1105,23 +1106,23 @@ class _AdministradorInventarioWidgetState
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color: const Color(0xFFF1F4F8),
+                                                      color: Color(0xFFF1F4F8),
                                                       letterSpacing: 0.0,
                                                     ),
                                                 hintText:
                                                     'Seleccione una categoria...',
-                                                icon: const Icon(
+                                                icon: Icon(
                                                   Icons
                                                       .keyboard_arrow_down_rounded,
                                                   color: Color(0xFFE8E6D7),
                                                   size: 24.0,
                                                 ),
-                                                fillColor: const Color(0xFFBF9E75),
+                                                fillColor: Color(0xFFBF9E75),
                                                 elevation: 2.0,
-                                                borderColor: const Color(0xFFE8E6D7),
+                                                borderColor: Color(0xFFE8E6D7),
                                                 borderWidth: 2.0,
                                                 borderRadius: 8.0,
-                                                margin: const EdgeInsetsDirectional
+                                                margin: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 4.0, 16.0, 4.0),
                                                 hidesUnderline: true,
@@ -1141,7 +1142,7 @@ class _AdministradorInventarioWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor:
@@ -1150,7 +1151,7 @@ class _AdministradorInventarioWidgetState
                                             borderRadius: 20.0,
                                             borderWidth: 1.0,
                                             buttonSize: 40.0,
-                                            fillColor: const Color(0xFFF3E2CE),
+                                            fillColor: Color(0xFFF3E2CE),
                                             icon: Icon(
                                               Icons.image_sharp,
                                               color:
@@ -1250,25 +1251,39 @@ class _AdministradorInventarioWidgetState
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(14.0),
+                        padding: EdgeInsets.all(14.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if ((_model.txtCodeTextController.text != '') &&
+                            if ((_model.txtCodeTextController.text !=
+                                        null &&
+                                    _model.txtCodeTextController.text != '') &&
                                 (_model
+                                            .txtNameProductTextController.text !=
+                                        null &&
+                                    _model
                                             .txtNameProductTextController.text !=
                                         '') &&
                                 (_model
                                             .txtDescriptionTextController.text !=
+                                        null &&
+                                    _model
+                                            .txtDescriptionTextController.text !=
                                         '') &&
                                 (_model
                                             .txtCantidadTextController.text !=
+                                        null &&
+                                    _model
+                                            .txtCantidadTextController.text !=
                                         '') &&
-                                (_model.txtPrecioTextController.text !=
+                                (_model.txtPrecioTextController.text != null &&
+                                    _model.txtPrecioTextController.text !=
                                         '') &&
                                 (_model.dbCategoriaValue != null &&
                                     _model.dbCategoriaValue != '') &&
-                                (_model.uploadedFileUrl != '') &&
-                                (_model.txtColorTextController.text != '')) {
+                                (_model.uploadedFileUrl != null &&
+                                    _model.uploadedFileUrl != '') &&
+                                (_model.txtColorTextController.text != null &&
+                                    _model.txtColorTextController.text != '')) {
                               await ProductoRecord.collection
                                   .doc()
                                   .set(createProductoRecordData(
@@ -1311,8 +1326,8 @@ class _AdministradorInventarioWidgetState
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor: const Color(0xFF1ABD00),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0xFF1ABD00),
                                 ),
                               );
                             } else {
@@ -1326,36 +1341,36 @@ class _AdministradorInventarioWidgetState
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor: const Color(0xFFBCBF0D),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0xFFBCBF0D),
                                 ),
                               );
                             }
                           },
                           text: 'Registrar Producto',
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.add_box,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
                             width: 170.0,
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFFF3E2CE),
+                            color: Color(0xFFF3E2CE),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  color: const Color(0xFF00070F),
+                                  color: Color(0xFF00070F),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFFBF9E75),
                               width: 2.0,
                             ),
@@ -1459,10 +1474,10 @@ class _AdministradorInventarioWidgetState
                           dataRowBuilder: (productosItem, productosIndex,
                                   selected, onSelectChanged) =>
                               DataRow(
-                            color: WidgetStateProperty.all(
+                            color: MaterialStateProperty.all(
                               productosIndex % 2 == 0
-                                  ? const Color(0xFFF3E2CE)
-                                  : const Color(0xDAF3E2CE),
+                                  ? Color(0xFFF3E2CE)
+                                  : Color(0xDAF3E2CE),
                             ),
                             cells: [
                               Text(
@@ -1533,23 +1548,19 @@ class _AdministradorInventarioWidgetState
                                         onTap: () async {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
-                                            backgroundColor: const Color(0x00F3E2CE),
+                                            backgroundColor: Color(0x00F3E2CE),
                                             enableDrag: false,
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(context)
                                                         .unfocus(),
                                                 child: Padding(
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: SizedBox(
+                                                  child: Container(
                                                     height: MediaQuery.sizeOf(
                                                                 context)
                                                             .height *
@@ -1592,8 +1603,8 @@ class _AdministradorInventarioWidgetState
                                                     builder:
                                                         (alertDialogContext) {
                                                       return AlertDialog(
-                                                        title: const Text('¡Alerta!'),
-                                                        content: const Text(
+                                                        title: Text('¡Alerta!'),
+                                                        content: Text(
                                                             'Esta a punto de eliminar el producto ¿Desea continuar?'),
                                                         actions: [
                                                           TextButton(
@@ -1602,7 +1613,7 @@ class _AdministradorInventarioWidgetState
                                                                     alertDialogContext,
                                                                     false),
                                                             child:
-                                                                const Text('Cancel'),
+                                                                Text('Cancel'),
                                                           ),
                                                           TextButton(
                                                             onPressed: () =>
@@ -1610,7 +1621,7 @@ class _AdministradorInventarioWidgetState
                                                                     alertDialogContext,
                                                                     true),
                                                             child:
-                                                                const Text('Confirm'),
+                                                                Text('Confirm'),
                                                           ),
                                                         ],
                                                       );
@@ -1644,7 +1655,7 @@ class _AdministradorInventarioWidgetState
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           columnSpacing: 10.0,
-                          headingRowColor: const Color(0xFFBF9E75),
+                          headingRowColor: Color(0xFFBF9E75),
                           borderRadius: BorderRadius.circular(8.0),
                           addHorizontalDivider: true,
                           addTopAndBottomDivider: false,

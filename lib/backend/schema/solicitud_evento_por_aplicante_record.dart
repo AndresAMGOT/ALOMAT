@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class SolicitudEventoPorAplicanteRecord extends FirestoreRecord {
   SolicitudEventoPorAplicanteRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -106,6 +106,26 @@ class SolicitudEventoPorAplicanteRecord extends FirestoreRecord {
   DateTime? get fechaCreacion => _fechaCreacion;
   bool hasFechaCreacion() => _fechaCreacion != null;
 
+  // "IsActived" field.
+  bool? _isActived;
+  bool get isActived => _isActived ?? false;
+  bool hasIsActived() => _isActived != null;
+
+  // "Nombre" field.
+  String? _nombre;
+  String get nombre => _nombre ?? '';
+  bool hasNombre() => _nombre != null;
+
+  // "EmailUser" field.
+  String? _emailUser;
+  String get emailUser => _emailUser ?? '';
+  bool hasEmailUser() => _emailUser != null;
+
+  // "TelefonoUser" field.
+  String? _telefonoUser;
+  String get telefonoUser => _telefonoUser ?? '';
+  bool hasTelefonoUser() => _telefonoUser != null;
+
   void _initializeFields() {
     _direccionEvento = snapshotData['DireccionEvento'] as String?;
     _nombreSalon = snapshotData['NombreSalon'] as String?;
@@ -125,6 +145,10 @@ class SolicitudEventoPorAplicanteRecord extends FirestoreRecord {
     _usuario = snapshotData['Usuario'] as DocumentReference?;
     _productos = getDataList(snapshotData['Productos']);
     _fechaCreacion = snapshotData['FechaCreacion'] as DateTime?;
+    _isActived = snapshotData['IsActived'] as bool?;
+    _nombre = snapshotData['Nombre'] as String?;
+    _emailUser = snapshotData['EmailUser'] as String?;
+    _telefonoUser = snapshotData['TelefonoUser'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -183,6 +207,10 @@ Map<String, dynamic> createSolicitudEventoPorAplicanteRecordData({
   bool? estaCompletado,
   DocumentReference? usuario,
   DateTime? fechaCreacion,
+  bool? isActived,
+  String? nombre,
+  String? emailUser,
+  String? telefonoUser,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -202,6 +230,10 @@ Map<String, dynamic> createSolicitudEventoPorAplicanteRecordData({
       'EstaCompletado': estaCompletado,
       'Usuario': usuario,
       'FechaCreacion': fechaCreacion,
+      'IsActived': isActived,
+      'Nombre': nombre,
+      'EmailUser': emailUser,
+      'TelefonoUser': telefonoUser,
     }.withoutNulls,
   );
 
@@ -234,7 +266,11 @@ class SolicitudEventoPorAplicanteRecordDocumentEquality
         e1?.estaCompletado == e2?.estaCompletado &&
         e1?.usuario == e2?.usuario &&
         listEquality.equals(e1?.productos, e2?.productos) &&
-        e1?.fechaCreacion == e2?.fechaCreacion;
+        e1?.fechaCreacion == e2?.fechaCreacion &&
+        e1?.isActived == e2?.isActived &&
+        e1?.nombre == e2?.nombre &&
+        e1?.emailUser == e2?.emailUser &&
+        e1?.telefonoUser == e2?.telefonoUser;
   }
 
   @override
@@ -256,7 +292,11 @@ class SolicitudEventoPorAplicanteRecordDocumentEquality
         e?.estaCompletado,
         e?.usuario,
         e?.productos,
-        e?.fechaCreacion
+        e?.fechaCreacion,
+        e?.isActived,
+        e?.nombre,
+        e?.emailUser,
+        e?.telefonoUser
       ]);
 
   @override

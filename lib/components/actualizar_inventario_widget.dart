@@ -8,7 +8,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'actualizar_inventario_model.dart';
 export 'actualizar_inventario_model.dart';
 
@@ -41,27 +44,27 @@ class _ActualizarInventarioWidgetState
     _model = createModel(context, () => ActualizarInventarioModel());
 
     _model.txtUPCodeTextController ??=
-        TextEditingController(text: widget.prmProducto?.codigo);
+        TextEditingController(text: widget!.prmProducto?.codigo);
     _model.txtUPCodeFocusNode ??= FocusNode();
 
     _model.txtUPNameProductTextController ??=
-        TextEditingController(text: widget.prmProducto?.nombre);
+        TextEditingController(text: widget!.prmProducto?.nombre);
     _model.txtUPNameProductFocusNode ??= FocusNode();
 
     _model.txtUPDescriptionTextController ??=
-        TextEditingController(text: widget.prmProducto?.descripcion);
+        TextEditingController(text: widget!.prmProducto?.descripcion);
     _model.txtUPDescriptionFocusNode ??= FocusNode();
 
     _model.txtUPPrecioTextController ??=
-        TextEditingController(text: widget.prmProducto?.precio.toString());
+        TextEditingController(text: widget!.prmProducto?.precio?.toString());
     _model.txtUPPrecioFocusNode ??= FocusNode();
 
     _model.txtUPCantidadTextController ??=
-        TextEditingController(text: widget.prmProducto?.cantidad.toString());
+        TextEditingController(text: widget!.prmProducto?.cantidad?.toString());
     _model.txtUPCantidadFocusNode ??= FocusNode();
 
     _model.txtUPColorTextController ??=
-        TextEditingController(text: widget.prmProducto?.color);
+        TextEditingController(text: widget!.prmProducto?.color);
     _model.txtUPColorFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -98,7 +101,7 @@ class _ActualizarInventarioWidgetState
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    widget.prmProducto!.imagen,
+                    widget!.prmProducto!.imagen,
                     width: 100.0,
                     height: 100.0,
                     fit: BoxFit.cover,
@@ -112,14 +115,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPCodeTextController,
                       focusNode: _model.txtUPCodeFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Código',
@@ -131,14 +134,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -159,7 +162,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -179,14 +182,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPNameProductTextController,
                       focusNode: _model.txtUPNameProductFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Nombre Producto',
@@ -198,14 +201,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -226,7 +229,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -246,14 +249,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPDescriptionTextController,
                       focusNode: _model.txtUPDescriptionFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Descripción',
@@ -265,14 +268,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -293,7 +296,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -312,7 +315,7 @@ class _ActualizarInventarioWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 3.0),
+                padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 3.0),
                 child: StreamBuilder<List<CategoriaProductosRecord>>(
                   stream: queryCategoriaProductosRecord(),
                   builder: (context, snapshot) {
@@ -338,7 +341,7 @@ class _ActualizarInventarioWidgetState
                       controller: _model.dbUPCategoriaValueController ??=
                           FormFieldController<String>(
                         _model.dbUPCategoriaValue ??=
-                            widget.prmProducto?.categoria,
+                            widget!.prmProducto?.categoria,
                       ),
                       options: dbUPCategoriaCategoriaProductosRecordList
                           .map((e) => e.nombre)
@@ -350,22 +353,22 @@ class _ActualizarInventarioWidgetState
                       textStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'Readex Pro',
-                                color: const Color(0xFFF1F4F8),
+                                color: Color(0xFFF1F4F8),
                                 letterSpacing: 0.0,
                               ),
                       hintText: 'Seleccione una categoria...',
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: Color(0xFFE8E6D7),
                         size: 24.0,
                       ),
-                      fillColor: const Color(0xFFBF9E75),
+                      fillColor: Color(0xFFBF9E75),
                       elevation: 2.0,
-                      borderColor: const Color(0xFFE8E6D7),
+                      borderColor: Color(0xFFE8E6D7),
                       borderWidth: 2.0,
                       borderRadius: 8.0,
                       margin:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                       hidesUnderline: true,
                       isOverButton: true,
                       isSearchable: false,
@@ -381,14 +384,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPPrecioTextController,
                       focusNode: _model.txtUPPrecioFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Precio',
@@ -400,14 +403,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -428,7 +431,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -448,14 +451,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPCantidadTextController,
                       focusNode: _model.txtUPCantidadFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Cantidad',
@@ -467,14 +470,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -495,7 +498,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -515,14 +518,14 @@ class _ActualizarInventarioWidgetState
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
-                  child: SizedBox(
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 16.0),
+                  child: Container(
                     width: 370.0,
                     child: TextFormField(
                       controller: _model.txtUPColorTextController,
                       focusNode: _model.txtUPColorFocusNode,
                       autofocus: true,
-                      autofillHints: const [AutofillHints.email],
+                      autofillHints: [AutofillHints.email],
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Color',
@@ -534,14 +537,14 @@ class _ActualizarInventarioWidgetState
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFFE8E6D7),
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xBC00040F),
                             width: 2.0,
                           ),
@@ -562,7 +565,7 @@ class _ActualizarInventarioWidgetState
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
-                        fillColor: const Color(0xFFBF9E75),
+                        fillColor: Color(0xFFBF9E75),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
@@ -582,13 +585,13 @@ class _ActualizarInventarioWidgetState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).accent4,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: const Color(0xFFF3E2CE),
+                  fillColor: Color(0xFFF3E2CE),
                   icon: Icon(
                     Icons.image_sharp,
                     color: FlutterFlowTheme.of(context).primaryText,
@@ -652,26 +655,26 @@ class _ActualizarInventarioWidgetState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.all(14.0),
+                padding: EdgeInsets.all(14.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     var confirmDialogResponse = await showDialog<bool>(
                           context: context,
                           builder: (alertDialogContext) {
                             return AlertDialog(
-                              title: const Text('¡Alerta!'),
-                              content: const Text(
+                              title: Text('¡Alerta!'),
+                              content: Text(
                                   'Esta a punto de actualizar el producto.¿Desea continuar?'),
                               actions: [
                                 TextButton(
                                   onPressed: () =>
                                       Navigator.pop(alertDialogContext, false),
-                                  child: const Text('Cancel'),
+                                  child: Text('Cancel'),
                                 ),
                                 TextButton(
                                   onPressed: () =>
                                       Navigator.pop(alertDialogContext, true),
-                                  child: const Text('Confirm'),
+                                  child: Text('Confirm'),
                                 ),
                               ],
                             );
@@ -679,17 +682,23 @@ class _ActualizarInventarioWidgetState
                         ) ??
                         false;
                     if (confirmDialogResponse) {
-                      if ((_model.txtUPCodeTextController.text != '') &&
-                          (_model.txtUPNameProductTextController.text !=
+                      if ((_model.txtUPCodeTextController.text != null &&
+                              _model.txtUPCodeTextController.text != '') &&
+                          (_model.txtUPNameProductTextController.text != null &&
+                              _model.txtUPNameProductTextController.text !=
                                   '') &&
-                          (_model.txtUPDescriptionTextController.text !=
+                          (_model.txtUPDescriptionTextController.text != null &&
+                              _model.txtUPDescriptionTextController.text !=
                                   '') &&
-                          (_model.txtUPCantidadTextController.text != '') &&
-                          (_model.txtUPPrecioTextController.text != '') &&
+                          (_model.txtUPCantidadTextController.text != null &&
+                              _model.txtUPCantidadTextController.text != '') &&
+                          (_model.txtUPPrecioTextController.text != null &&
+                              _model.txtUPPrecioTextController.text != '') &&
                           (_model.dbUPCategoriaValue != null &&
                               _model.dbUPCategoriaValue != '') &&
-                          (_model.txtUPColorTextController.text != '')) {
-                        await widget.prmProducto!.reference
+                          (_model.txtUPColorTextController.text != null &&
+                              _model.txtUPColorTextController.text != '')) {
+                        await widget!.prmProducto!.reference
                             .update(createProductoRecordData(
                           codigo: _model.txtUPCodeTextController.text,
                           nombre: _model.txtUPNameProductTextController.text,
@@ -714,8 +723,8 @@ class _ActualizarInventarioWidgetState
                                     .primaryBackground,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor: const Color(0xFF00070F),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0xFF00070F),
                           ),
                         );
                         setState(() {
@@ -736,8 +745,8 @@ class _ActualizarInventarioWidgetState
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor: const Color(0xFF4FD239),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0xFF4FD239),
                           ),
                         );
 
@@ -752,34 +761,34 @@ class _ActualizarInventarioWidgetState
                                     .primaryBackground,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
-                            backgroundColor: const Color(0xFFE4E916),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0xFFE4E916),
                           ),
                         );
                       }
                     }
                   },
                   text: 'Actualizar',
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.browser_updated_rounded,
                     size: 15.0,
                   ),
                   options: FFButtonOptions(
                     width: 170.0,
                     height: 40.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFF3E2CE),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFFF3E2CE),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFF00070F),
+                          color: Color(0xFF00070F),
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFBF9E75),
                       width: 2.0,
                     ),

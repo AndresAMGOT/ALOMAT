@@ -9,3 +9,5 @@ export '/steps/step2/step2_widget.dart' show Step2Widget;
 export '/steps/step3/step3_widget.dart' show Step3Widget;
 export '/steps/step4/step4_widget.dart' show Step4Widget;
 export '/resenas/resenas_widget.dart' show ResenasWidget;
+export '/chose_product/chose_product_widget.dart' show ChoseProductWidget;
+export '/steps/step5/step5_widget.dart' show Step5Widget;
