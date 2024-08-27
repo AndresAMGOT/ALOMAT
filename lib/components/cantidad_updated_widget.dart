@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'cantidad_updated_model.dart';
 export 'cantidad_updated_model.dart';
 
@@ -43,14 +41,14 @@ class _CantidadUpdatedWidgetState extends State<CantidadUpdatedWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
-      child: Container(
+      padding: const EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
+      child: SizedBox(
         width: 370.0,
         child: TextFormField(
           controller: _model.txtCantidadUpdatedTextController,
           focusNode: _model.txtCantidadUpdatedFocusNode,
           autofocus: true,
-          autofillHints: [AutofillHints.email],
+          autofillHints: const [AutofillHints.email],
           obscureText: false,
           decoration: InputDecoration(
             labelText: 'Cantidad',
@@ -60,14 +58,14 @@ class _CantidadUpdatedWidgetState extends State<CantidadUpdatedWidget> {
                   letterSpacing: 0.0,
                 ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Color(0xFFE8E6D7),
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(12.0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Color(0xBC00040F),
                 width: 2.0,
               ),
@@ -88,7 +86,7 @@ class _CantidadUpdatedWidgetState extends State<CantidadUpdatedWidget> {
               borderRadius: BorderRadius.circular(12.0),
             ),
             filled: true,
-            fillColor: Color(0xFFBF9E75),
+            fillColor: const Color(0xFFBF9E75),
           ),
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Readex Pro',

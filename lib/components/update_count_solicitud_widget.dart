@@ -2,10 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'update_count_solicitud_model.dart';
 export 'update_count_solicitud_model.dart';
 
@@ -64,7 +61,7 @@ class _UpdateCountSolicitudWidgetState
                 queryBuilder: (productoPorAplicacionRecord) =>
                     productoPorAplicacionRecord.where(
                   'Solicitud',
-                  isEqualTo: widget!.prmSolicitudIs,
+                  isEqualTo: widget.prmSolicitudIs,
                 ),
               ),
               builder: (context, snapshot) {
@@ -95,7 +92,7 @@ class _UpdateCountSolicitudWidgetState
                         listViewProductoPorAplicacionRecordList[listViewIndex];
                     return Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFF02152B),
+                      color: const Color(0xFF02152B),
                       elevation: 4.0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
@@ -113,7 +110,7 @@ class _UpdateCountSolicitudWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      color: Color(0xFFE8E6D7),
+                                      color: const Color(0xFFE8E6D7),
                                       fontSize: 19.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w900,
@@ -122,7 +119,7 @@ class _UpdateCountSolicitudWidgetState
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -133,11 +130,11 @@ class _UpdateCountSolicitudWidgetState
                                     Container(
                                       width: 100.0,
                                       height: 100.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Color(0xFF02152B),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 5.0, 5.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -159,7 +156,7 @@ class _UpdateCountSolicitudWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             1.0, 4.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -172,7 +169,7 @@ class _UpdateCountSolicitudWidgetState
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Readex Pro',
-                                                    color: Color(0xFFE8E6D7),
+                                                    color: const Color(0xFFE8E6D7),
                                                     fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
@@ -183,7 +180,7 @@ class _UpdateCountSolicitudWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             1.0, 4.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -195,7 +192,7 @@ class _UpdateCountSolicitudWidgetState
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Readex Pro',
-                                                    color: Color(0xFFE8E6D7),
+                                                    color: const Color(0xFFE8E6D7),
                                                     fontSize: 12.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
@@ -213,9 +210,9 @@ class _UpdateCountSolicitudWidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        1.0, 5.0, 0.0, 0.0),
+                                                        1.0, 5.0, 15.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     var confirmDialogResponse =
@@ -224,7 +221,7 @@ class _UpdateCountSolicitudWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return AlertDialog(
-                                                                  title: Text(
+                                                                  title: const Text(
                                                                       '¡Alerta!'),
                                                                   content: Text(
                                                                       'Esta a punto de eliminar el producto ${listViewProductoPorAplicacionRecord.nombre}esta seguro?'),
@@ -233,14 +230,14 @@ class _UpdateCountSolicitudWidgetState
                                                                       onPressed: () => Navigator.pop(
                                                                           alertDialogContext,
                                                                           false),
-                                                                      child: Text(
+                                                                      child: const Text(
                                                                           'Cancel'),
                                                                     ),
                                                                     TextButton(
                                                                       onPressed: () => Navigator.pop(
                                                                           alertDialogContext,
                                                                           true),
-                                                                      child: Text(
+                                                                      child: const Text(
                                                                           'Confirm'),
                                                                     ),
                                                                   ],
@@ -255,7 +252,7 @@ class _UpdateCountSolicitudWidgetState
                                                     }
                                                   },
                                                   text: 'Eliminar',
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.delete_sharp,
                                                     size: 15.0,
                                                   ),
@@ -263,14 +260,14 @@ class _UpdateCountSolicitudWidgetState
                                                     width: 90.0,
                                                     height: 30.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: Color(0xFFF3E2CE),
+                                                    color: const Color(0xFFF3E2CE),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -278,12 +275,12 @@ class _UpdateCountSolicitudWidgetState
                                                           fontFamily:
                                                               'Readex Pro',
                                                           color:
-                                                              Color(0xFF02152B),
+                                                              const Color(0xFF02152B),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0xFFBF9E75),
                                                       width: 3.0,
                                                     ),

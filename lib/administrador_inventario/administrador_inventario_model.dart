@@ -1,26 +1,16 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/components/actualizar_inventario_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import 'administrador_inventario_widget.dart'
     show AdministradorInventarioWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class AdministradorInventarioModel
     extends FlutterFlowModel<AdministradorInventarioWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for txtCode widget.
   FocusNode? txtCodeFocusNode;
   TextEditingController? txtCodeTextController;
@@ -81,5 +71,7 @@ class AdministradorInventarioModel
 
     txtPrecioFocusNode?.dispose();
     txtPrecioTextController?.dispose();
+
+    paginatedDataTableController.dispose();
   }
 }

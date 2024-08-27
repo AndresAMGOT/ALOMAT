@@ -1,3 +1,36 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "SolicitudEventoPorAplicante",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "IsActived",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "EstaCompletado",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "FechaEvento",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "ProductoPorAplicacion",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Solicitud",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Nombre",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

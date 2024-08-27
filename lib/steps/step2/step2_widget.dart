@@ -6,10 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'step2_model.dart';
 export 'step2_model.dart';
 
@@ -82,7 +79,7 @@ class _Step2WidgetState extends State<Step2Widget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -111,7 +108,7 @@ class _Step2WidgetState extends State<Step2Widget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             drawer: Drawer(
               elevation: 16.0,
               child: Column(
@@ -119,7 +116,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -146,7 +143,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -156,7 +153,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                             width: 75.0,
                             height: 75.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
@@ -170,7 +167,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -208,63 +205,51 @@ class _Step2WidgetState extends State<Step2Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => ListTile(
-                              leading: Icon(
-                                Icons.person,
-                              ),
-                              title: Text(
-                                'Perfil',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              dense: false,
-                            ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.person,
                           ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('HomePage');
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.home,
+                          title: Text(
+                            'Perfil',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  letterSpacing: 0.0,
                                 ),
-                                title: Text(
-                                  'Inicio',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
-                            ),
                           ),
+                          dense: false,
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.home,
+                            ),
+                            title: Text(
+                              'Inicio',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
+                          ),
+                        ),
                         if (valueOrDefault<bool>(
                                 currentUserDocument?.isUser, false) ==
                             true)
@@ -275,18 +260,10 @@ class _Step2WidgetState extends State<Step2Widget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed(
-                                  'Step2',
-                                  queryParameters: {
-                                    'prmIdSolicitud': serializeParam(
-                                      widget!.prmIdSolicitud,
-                                      ParamType.DocumentReference,
-                                    ),
-                                  }.withoutNulls,
-                                );
+                                context.pushNamed('Step1');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.event_note,
                                 ),
                                 title: Text(
@@ -315,11 +292,40 @@ class _Step2WidgetState extends State<Step2Widget> {
                                 context.pushNamed('AdministradorInventario');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.add_shopping_cart,
                                 ),
                                 title: Text(
                                   'Inventario',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                dense: false,
+                              ),
+                            ),
+                          ),
+                        if (valueOrDefault<bool>(
+                                currentUserDocument?.isAdmin, false) ==
+                            true)
+                          AuthUserStreamWidget(
+                            builder: (context) => InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('RequestSPA');
+                              },
+                              child: ListTile(
+                                leading: const Icon(
+                                  Icons.event_rounded,
+                                ),
+                                title: Text(
+                                  'Solicitudes',
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
@@ -340,7 +346,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                             context.pushNamed('Resenas');
                           },
                           child: ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.star_rounded,
                             ),
                             title: Text(
@@ -355,40 +361,34 @@ class _Step2WidgetState extends State<Step2Widget> {
                             dense: false,
                           ),
                         ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
 
-                                context.goNamedAuth('Login', context.mounted);
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.login_rounded,
-                                ),
-                                title: Text(
-                                  'Cerrar sesión',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
+                            context.goNamedAuth('Login', context.mounted);
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.login_rounded,
                             ),
+                            title: Text(
+                              'Cerrar sesión',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
                           ),
+                        ),
                       ],
                     ),
                   ),
@@ -396,9 +396,9 @@ class _Step2WidgetState extends State<Step2Widget> {
               ),
             ),
             appBar: AppBar(
-              backgroundColor: Color(0xFF00070F),
+              backgroundColor: const Color(0xFF00070F),
               automaticallyImplyLeading: true,
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 4.0,
             ),
@@ -413,14 +413,14 @@ class _Step2WidgetState extends State<Step2Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               30.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: Color(0xFFBF9E75),
+                            borderColor: const Color(0xFFBF9E75),
                             borderRadius: 20.0,
                             borderWidth: 2.0,
                             buttonSize: 40.0,
-                            fillColor: Color(0xFFF3E2CE),
+                            fillColor: const Color(0xFFF3E2CE),
                             icon: Icon(
                               Icons.keyboard_return,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -435,7 +435,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                           child: Container(
                             width: double.infinity,
                             height: 80.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF00070F),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -444,9 +444,9 @@ class _Step2WidgetState extends State<Step2Widget> {
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Ingreso de datos de la temática',
@@ -455,7 +455,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Source Sans 3',
-                                      color: Color(0xFFFFE1AF),
+                                      color: const Color(0xFFFFE1AF),
                                       fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -466,7 +466,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -477,7 +477,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Source Sans 3',
-                                  color: Color(0xFFFFE1AF),
+                                  color: const Color(0xFFFFE1AF),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
@@ -489,7 +489,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                     Container(
                       width: 350.0,
                       height: 640.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFF3DDB6),
                       ),
                       child: Column(
@@ -512,24 +512,24 @@ class _Step2WidgetState extends State<Step2Widget> {
                             ],
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(32.0),
+                              padding: const EdgeInsets.all(32.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 5.0),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 370.0,
                                       child: TextFormField(
                                         controller:
                                             _model.txtEventTypeTextController,
                                         focusNode: _model.txtEventTypeFocusNode,
                                         autofocus: true,
-                                        autofillHints: [AutofillHints.email],
+                                        autofillHints: const [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Tipo de evento',
@@ -544,7 +544,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE8E6D7),
                                               width: 2.0,
                                             ),
@@ -552,7 +552,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xBC00040F),
                                               width: 2.0,
                                             ),
@@ -581,7 +581,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0xFFBF9E75),
+                                          fillColor: const Color(0xFFBF9E75),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -598,16 +598,16 @@ class _Step2WidgetState extends State<Step2Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 5.0),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 370.0,
                                       child: TextFormField(
                                         controller:
                                             _model.txtTopicTextController,
                                         focusNode: _model.txtTopicFocusNode,
                                         autofocus: true,
-                                        autofillHints: [AutofillHints.email],
+                                        autofillHints: const [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Temática',
@@ -622,7 +622,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE8E6D7),
                                               width: 2.0,
                                             ),
@@ -630,7 +630,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xBC00040F),
                                               width: 2.0,
                                             ),
@@ -659,7 +659,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0xFFBF9E75),
+                                          fillColor: const Color(0xFFBF9E75),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -676,16 +676,16 @@ class _Step2WidgetState extends State<Step2Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 5.0),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 370.0,
                                       child: TextFormField(
                                         controller:
                                             _model.txtColoresTextController,
                                         focusNode: _model.txtColoresFocusNode,
                                         autofocus: true,
-                                        autofillHints: [AutofillHints.email],
+                                        autofillHints: const [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Colores de preferencia',
@@ -700,7 +700,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE8E6D7),
                                               width: 2.0,
                                             ),
@@ -708,7 +708,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xBC00040F),
                                               width: 2.0,
                                             ),
@@ -737,7 +737,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0xFFBF9E75),
+                                          fillColor: const Color(0xFFBF9E75),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -754,16 +754,16 @@ class _Step2WidgetState extends State<Step2Widget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 5.0),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 370.0,
                                       child: TextFormField(
                                         controller:
                                             _model.txtCommentTextController,
                                         focusNode: _model.txtCommentFocusNode,
                                         autofocus: true,
-                                        autofillHints: [AutofillHints.email],
+                                        autofillHints: const [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Comentarios adicionales',
@@ -778,7 +778,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFE8E6D7),
                                               width: 2.0,
                                             ),
@@ -786,7 +786,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xBC00040F),
                                               width: 2.0,
                                             ),
@@ -815,7 +815,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0xFFBF9E75),
+                                          fillColor: const Color(0xFFBF9E75),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -853,7 +853,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                               galeriasItem,
                                               width: 100.0,
                                               height: 150.0,
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.contain,
                                             ),
                                           );
                                         }),
@@ -919,16 +919,16 @@ class _Step2WidgetState extends State<Step2Widget> {
                                       }
                                     },
                                     text: 'Subir Imagenes',
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.image_sharp,
                                       size: 15.0,
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
@@ -940,7 +940,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -952,7 +952,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.all(6.0),
+                                        padding: const EdgeInsets.all(6.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.safePop();
@@ -962,22 +962,22 @@ class _Step2WidgetState extends State<Step2Widget> {
                                             width: 120.0,
                                             height: 44.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFF3E2CE),
+                                            color: const Color(0xFFF3E2CE),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color: Color(0xFF00070F),
+                                                      color: const Color(0xFF00070F),
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFBF9E75),
                                               width: 2.0,
                                             ),
@@ -990,25 +990,16 @@ class _Step2WidgetState extends State<Step2Widget> {
                                         onPressed: () async {
                                           if ((_model.txtEventTypeTextController
                                                           .text !=
-                                                      null &&
-                                                  _model.txtEventTypeTextController
-                                                          .text !=
                                                       '') &&
                                               (_model.txtTopicTextController
-                                                          .text !=
-                                                      null &&
-                                                  _model.txtTopicTextController
                                                           .text !=
                                                       '') &&
                                               (_model.txtColoresTextController
                                                           .text !=
-                                                      null &&
-                                                  _model.txtColoresTextController
-                                                          .text !=
                                                       '')) {
                                             if (step2SolicitudEventoPorAplicanteRecord !=
                                                 null) {
-                                              await widget!.prmIdSolicitud!
+                                              await widget.prmIdSolicitud!
                                                   .update({
                                                 ...createSolicitudEventoPorAplicanteRecordData(
                                                   tipoDeEvento: _model
@@ -1037,7 +1028,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                 queryParameters: {
                                                   'prmIdSolicitud':
                                                       serializeParam(
-                                                    widget!.prmIdSolicitud,
+                                                    widget.prmIdSolicitud,
                                                     ParamType.DocumentReference,
                                                   ),
                                                 }.withoutNulls,
@@ -1056,7 +1047,7 @@ class _Step2WidgetState extends State<Step2Widget> {
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                                 ),
-                                                duration: Duration(
+                                                duration: const Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -1070,22 +1061,22 @@ class _Step2WidgetState extends State<Step2Widget> {
                                           width: 120.0,
                                           height: 44.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFFF3E2CE),
+                                          color: const Color(0xFFF3E2CE),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
                                                     fontFamily: 'Readex Pro',
-                                                    color: Color(0xFF00070F),
+                                                    color: const Color(0xFF00070F),
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFFBF9E75),
                                             width: 2.0,
                                           ),

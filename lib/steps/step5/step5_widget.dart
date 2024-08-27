@@ -6,10 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'step5_model.dart';
 export 'step5_model.dart';
 
@@ -102,7 +99,7 @@ class _Step5WidgetState extends State<Step5Widget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -131,7 +128,7 @@ class _Step5WidgetState extends State<Step5Widget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             drawer: Drawer(
               elevation: 16.0,
               child: Column(
@@ -139,7 +136,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +163,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -176,7 +173,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                             width: 75.0,
                             height: 75.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
@@ -190,7 +187,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -228,63 +225,51 @@ class _Step5WidgetState extends State<Step5Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => ListTile(
-                              leading: Icon(
-                                Icons.person,
-                              ),
-                              title: Text(
-                                'Perfil',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              dense: false,
-                            ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.person,
                           ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('HomePage');
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.home,
+                          title: Text(
+                            'Perfil',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  letterSpacing: 0.0,
                                 ),
-                                title: Text(
-                                  'Inicio',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
-                            ),
                           ),
+                          dense: false,
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.home,
+                            ),
+                            title: Text(
+                              'Inicio',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
+                          ),
+                        ),
                         if (valueOrDefault<bool>(
                                 currentUserDocument?.isUser, false) ==
                             true)
@@ -295,18 +280,10 @@ class _Step5WidgetState extends State<Step5Widget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed(
-                                  'Step5',
-                                  queryParameters: {
-                                    'prmIdSolicitud': serializeParam(
-                                      widget!.prmIdSolicitud,
-                                      ParamType.DocumentReference,
-                                    ),
-                                  }.withoutNulls,
-                                );
+                                context.pushNamed('Step1');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.event_note,
                                 ),
                                 title: Text(
@@ -335,11 +312,40 @@ class _Step5WidgetState extends State<Step5Widget> {
                                 context.pushNamed('AdministradorInventario');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.add_shopping_cart,
                                 ),
                                 title: Text(
                                   'Inventario',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                dense: false,
+                              ),
+                            ),
+                          ),
+                        if (valueOrDefault<bool>(
+                                currentUserDocument?.isAdmin, false) ==
+                            true)
+                          AuthUserStreamWidget(
+                            builder: (context) => InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('RequestSPA');
+                              },
+                              child: ListTile(
+                                leading: const Icon(
+                                  Icons.event_rounded,
+                                ),
+                                title: Text(
+                                  'Solicitudes',
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
@@ -360,7 +366,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                             context.pushNamed('Resenas');
                           },
                           child: ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.star_rounded,
                             ),
                             title: Text(
@@ -375,40 +381,34 @@ class _Step5WidgetState extends State<Step5Widget> {
                             dense: false,
                           ),
                         ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
 
-                                context.goNamedAuth('Login', context.mounted);
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.login_rounded,
-                                ),
-                                title: Text(
-                                  'Cerrar sesión',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
+                            context.goNamedAuth('Login', context.mounted);
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.login_rounded,
                             ),
+                            title: Text(
+                              'Cerrar sesión',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
                           ),
+                        ),
                       ],
                     ),
                   ),
@@ -416,9 +416,9 @@ class _Step5WidgetState extends State<Step5Widget> {
               ),
             ),
             appBar: AppBar(
-              backgroundColor: Color(0xFF00070F),
+              backgroundColor: const Color(0xFF00070F),
               automaticallyImplyLeading: true,
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 4.0,
             ),
@@ -433,14 +433,14 @@ class _Step5WidgetState extends State<Step5Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               30.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: Color(0xFFBF9E75),
+                            borderColor: const Color(0xFFBF9E75),
                             borderRadius: 20.0,
                             borderWidth: 2.0,
                             buttonSize: 40.0,
-                            fillColor: Color(0xFFF3E2CE),
+                            fillColor: const Color(0xFFF3E2CE),
                             icon: Icon(
                               Icons.keyboard_return,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -455,7 +455,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                           child: Container(
                             width: double.infinity,
                             height: 80.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF00070F),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -464,9 +464,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   29.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Agendar un Evento',
@@ -475,7 +475,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Source Sans 3',
-                                      color: Color(0xFFFFE1AF),
+                                      color: const Color(0xFFFFE1AF),
                                       fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -486,7 +486,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -497,7 +497,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Source Sans 3',
-                                  color: Color(0xFFFFE1AF),
+                                  color: const Color(0xFFFFE1AF),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
@@ -509,7 +509,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                     Container(
                       width: 350.0,
                       height: 640.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFF3DDB6),
                       ),
                       child: SingleChildScrollView(
@@ -517,9 +517,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsets.all(32.0),
+                                padding: const EdgeInsets.all(32.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -537,10 +537,10 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                         child: AuthUserStreamWidget(
-                                          builder: (context) => Container(
+                                          builder: (context) => SizedBox(
                                             width: 370.0,
                                             child: TextFormField(
                                               controller: _model
@@ -548,7 +548,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                               focusNode:
                                                   _model.txtNombreFocusNode,
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -568,7 +568,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE8E6D7),
                                                     width: 2.0,
                                                   ),
@@ -578,7 +578,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xBC00040F),
                                                     width: 2.0,
                                                   ),
@@ -610,7 +610,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                           12.0),
                                                 ),
                                                 filled: true,
-                                                fillColor: Color(0xFFBF9E75),
+                                                fillColor: const Color(0xFFBF9E75),
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -630,16 +630,16 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller:
                                                 _model.txtEmailTextController,
                                             focusNode: _model.txtEmailFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -657,7 +657,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -665,7 +665,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -694,7 +694,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -711,10 +711,10 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                         child: AuthUserStreamWidget(
-                                          builder: (context) => Container(
+                                          builder: (context) => SizedBox(
                                             width: 370.0,
                                             child: TextFormField(
                                               controller: _model
@@ -722,7 +722,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                               focusNode:
                                                   _model.txtTelefonoFocusNode,
                                               autofocus: true,
-                                              autofillHints: [
+                                              autofillHints: const [
                                                 AutofillHints.email
                                               ],
                                               readOnly: true,
@@ -742,7 +742,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xFFE8E6D7),
                                                     width: 2.0,
                                                   ),
@@ -752,7 +752,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0xBC00040F),
                                                     width: 2.0,
                                                   ),
@@ -784,7 +784,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                           12.0),
                                                 ),
                                                 filled: true,
-                                                fillColor: Color(0xFFBF9E75),
+                                                fillColor: const Color(0xFFBF9E75),
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -849,22 +849,22 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color: Color(0xFFF1F4F8),
+                                                      color: const Color(0xFFF1F4F8),
                                                       letterSpacing: 0.0,
                                                     ),
                                             hintText: 'Forma de Pago',
-                                            icon: Icon(
+                                            icon: const Icon(
                                               Icons.keyboard_arrow_down_rounded,
                                               color: Color(0xFFF1F4F8),
                                               size: 24.0,
                                             ),
-                                            fillColor: Color(0xFFBF9E75),
+                                            fillColor: const Color(0xFFBF9E75),
                                             elevation: 2.0,
-                                            borderColor: Color(0xFFE8E6D7),
+                                            borderColor: const Color(0xFFE8E6D7),
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 4.0, 16.0, 4.0),
                                             hidesUnderline: true,
                                             isOverButton: true,
@@ -884,9 +884,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -899,7 +899,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtTipoEventoFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -917,7 +917,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -925,7 +925,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -954,7 +954,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -971,9 +971,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -986,7 +986,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtNombreSalonFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1004,7 +1004,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1012,7 +1012,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1041,7 +1041,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1058,9 +1058,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1073,7 +1073,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode: _model
                                                 .txtRecepcionistaFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1091,7 +1091,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1099,7 +1099,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1128,7 +1128,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1145,9 +1145,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1160,7 +1160,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode: _model
                                                 .txtTelRecepcionistaFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1179,7 +1179,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1187,7 +1187,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1216,7 +1216,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1233,9 +1233,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1248,7 +1248,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtHoraIngresoFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1266,7 +1266,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1274,7 +1274,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1303,7 +1303,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1320,9 +1320,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1334,7 +1334,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             ),
                                             focusNode: _model.txtFechaFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1352,7 +1352,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1360,7 +1360,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1389,7 +1389,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1406,9 +1406,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1421,7 +1421,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtCommentFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1440,7 +1440,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1448,7 +1448,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1477,7 +1477,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1505,9 +1505,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1520,7 +1520,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtTematicaFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1538,7 +1538,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1546,7 +1546,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1575,7 +1575,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1593,9 +1593,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1608,7 +1608,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode:
                                                 _model.txtColoresFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1626,7 +1626,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1634,7 +1634,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1663,7 +1663,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1681,9 +1681,9 @@ class _Step5WidgetState extends State<Step5Widget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 370.0,
                                           child: TextFormField(
                                             controller: _model
@@ -1696,7 +1696,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             focusNode: _model
                                                 .txtCommentGeneralFocusNode,
                                             autofocus: true,
-                                            autofillHints: [
+                                            autofillHints: const [
                                               AutofillHints.email
                                             ],
                                             readOnly: true,
@@ -1715,7 +1715,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFE8E6D7),
                                                   width: 2.0,
                                                 ),
@@ -1723,7 +1723,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xBC00040F),
                                                   width: 2.0,
                                                 ),
@@ -1752,7 +1752,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               filled: true,
-                                              fillColor: Color(0xFFBF9E75),
+                                              fillColor: const Color(0xFFBF9E75),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1796,7 +1796,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                             .where(
                                                   'Solicitud',
                                                   isEqualTo:
-                                                      widget!.prmIdSolicitud,
+                                                      widget.prmIdSolicitud,
                                                 ),
                                               ),
                                               builder: (context, snapshot) {
@@ -1839,7 +1839,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                     return Card(
                                                       clipBehavior: Clip
                                                           .antiAliasWithSaveLayer,
-                                                      color: Color(0xFF02152B),
+                                                      color: const Color(0xFF02152B),
                                                       elevation: 4.0,
                                                       shape:
                                                           RoundedRectangleBorder(
@@ -1868,7 +1868,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Readex Pro',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFFE8E6D7),
                                                                       fontSize:
                                                                           19.0,
@@ -1897,13 +1897,13 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                     height:
                                                                         100.0,
                                                                     decoration:
-                                                                        BoxDecoration(
+                                                                        const BoxDecoration(
                                                                       color: Color(
                                                                           0xFF02152B),
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           5.0,
                                                                           5.0,
                                                                           5.0,
@@ -1935,7 +1935,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           0.0,
@@ -1958,7 +1958,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           0.0,
@@ -1972,7 +1972,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                             'Color:${listViewProductoPorAplicacionRecord.color}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Readex Pro',
-                                                                                  color: Color(0xFFE8E6D7),
+                                                                                  color: const Color(0xFFE8E6D7),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
@@ -1982,7 +1982,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           0.0,
@@ -1996,7 +1996,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                                             'Cantidad:${listViewProductoPorAplicacionRecord.cantidad.toString()}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Readex Pro',
-                                                                                  color: Color(0xFFE8E6D7),
+                                                                                  color: const Color(0xFFE8E6D7),
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w300,
@@ -2026,7 +2026,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.all(6.0),
+                                            padding: const EdgeInsets.all(6.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 context.safePop();
@@ -2035,24 +2035,24 @@ class _Step5WidgetState extends State<Step5Widget> {
                                               options: FFButtonOptions(
                                                 width: 120.0,
                                                 height: 44.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFFF3E2CE),
+                                                color: const Color(0xFFF3E2CE),
                                                 textStyle: FlutterFlowTheme.of(
                                                         context)
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color: Color(0xFF00070F),
+                                                      color: const Color(0xFF00070F),
                                                       letterSpacing: 0.0,
                                                     ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0xFFBF9E75),
                                                   width: 2.0,
                                                 ),
@@ -2065,7 +2065,7 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             onPressed: () async {
                                               if (step5SolicitudEventoPorAplicanteRecord !=
                                                   null) {
-                                                await step5SolicitudEventoPorAplicanteRecord!
+                                                await step5SolicitudEventoPorAplicanteRecord
                                                     .reference
                                                     .update(
                                                         createSolicitudEventoPorAplicanteRecordData(
@@ -2082,15 +2082,15 @@ class _Step5WidgetState extends State<Step5Widget> {
                                                   builder:
                                                       (alertDialogContext) {
                                                     return AlertDialog(
-                                                      title: Text('¡Alerta!'),
-                                                      content: Text(
+                                                      title: const Text('¡Alerta!'),
+                                                      content: const Text(
                                                           'Su solicitud se ha enviado correctamente, un asesor de ALOMAT se pondrá en contacto con usted en un plazo de 48 horas.'),
                                                       actions: [
                                                         TextButton(
                                                           onPressed: () =>
                                                               Navigator.pop(
                                                                   alertDialogContext),
-                                                          child: Text('Ok'),
+                                                          child: const Text('Ok'),
                                                         ),
                                                       ],
                                                     );
@@ -2104,21 +2104,21 @@ class _Step5WidgetState extends State<Step5Widget> {
                                             options: FFButtonOptions(
                                               width: 120.0,
                                               height: 44.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFFF3E2CE),
+                                              color: const Color(0xFFF3E2CE),
                                               textStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .titleSmall
                                                   .override(
                                                     fontFamily: 'Readex Pro',
-                                                    color: Color(0xFF00070F),
+                                                    color: const Color(0xFF00070F),
                                                     letterSpacing: 0.0,
                                                   ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0xFFBF9E75),
                                                 width: 2.0,
                                               ),

@@ -11,3 +11,6 @@ export '/steps/step4/step4_widget.dart' show Step4Widget;
 export '/resenas/resenas_widget.dart' show ResenasWidget;
 export '/chose_product/chose_product_widget.dart' show ChoseProductWidget;
 export '/steps/step5/step5_widget.dart' show Step5Widget;
+export '/admin/request_s_p_a/request_s_p_a_widget.dart' show RequestSPAWidget;
+export '/admin/producto_por_aplicacion_u_i/producto_por_aplicacion_u_i_widget.dart'
+    show ProductoPorAplicacionUIWidget;

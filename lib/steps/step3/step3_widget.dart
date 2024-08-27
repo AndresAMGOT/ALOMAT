@@ -4,11 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'step3_model.dart';
 export 'step3_model.dart';
 
@@ -73,7 +69,7 @@ class _Step3WidgetState extends State<Step3Widget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -102,7 +98,7 @@ class _Step3WidgetState extends State<Step3Widget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xFF00070F),
+            backgroundColor: const Color(0xFF00070F),
             drawer: Drawer(
               elevation: 16.0,
               child: Column(
@@ -110,7 +106,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -137,7 +133,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -147,7 +143,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                             width: 75.0,
                             height: 75.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
@@ -161,7 +157,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -199,63 +195,51 @@ class _Step3WidgetState extends State<Step3Widget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       children: [
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => ListTile(
-                              leading: Icon(
-                                Icons.person,
-                              ),
-                              title: Text(
-                                'Perfil',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              dense: false,
-                            ),
+                        ListTile(
+                          leading: const Icon(
+                            Icons.person,
                           ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('HomePage');
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.home,
+                          title: Text(
+                            'Perfil',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  letterSpacing: 0.0,
                                 ),
-                                title: Text(
-                                  'Inicio',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
-                            ),
                           ),
+                          dense: false,
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.home,
+                            ),
+                            title: Text(
+                              'Inicio',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
+                          ),
+                        ),
                         if (valueOrDefault<bool>(
                                 currentUserDocument?.isUser, false) ==
                             true)
@@ -266,18 +250,10 @@ class _Step3WidgetState extends State<Step3Widget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed(
-                                  'Step3',
-                                  queryParameters: {
-                                    'prmIdSolicitud': serializeParam(
-                                      widget!.prmIdSolicitud,
-                                      ParamType.DocumentReference,
-                                    ),
-                                  }.withoutNulls,
-                                );
+                                context.pushNamed('Step1');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.event_note,
                                 ),
                                 title: Text(
@@ -306,11 +282,40 @@ class _Step3WidgetState extends State<Step3Widget> {
                                 context.pushNamed('AdministradorInventario');
                               },
                               child: ListTile(
-                                leading: Icon(
+                                leading: const Icon(
                                   Icons.add_shopping_cart,
                                 ),
                                 title: Text(
                                   'Inventario',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                                dense: false,
+                              ),
+                            ),
+                          ),
+                        if (valueOrDefault<bool>(
+                                currentUserDocument?.isAdmin, false) ==
+                            true)
+                          AuthUserStreamWidget(
+                            builder: (context) => InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('RequestSPA');
+                              },
+                              child: ListTile(
+                                leading: const Icon(
+                                  Icons.event_rounded,
+                                ),
+                                title: Text(
+                                  'Solicitudes',
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
@@ -331,7 +336,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                             context.pushNamed('Resenas');
                           },
                           child: ListTile(
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.star_rounded,
                             ),
                             title: Text(
@@ -346,40 +351,34 @@ class _Step3WidgetState extends State<Step3Widget> {
                             dense: false,
                           ),
                         ),
-                        if (valueOrDefault<bool>(
-                                currentUserDocument?.isAdmin, false) ||
-                            valueOrDefault<bool>(
-                                currentUserDocument?.isUser, false))
-                          AuthUserStreamWidget(
-                            builder: (context) => InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            GoRouter.of(context).prepareAuthEvent();
+                            await authManager.signOut();
+                            GoRouter.of(context).clearRedirectLocation();
 
-                                context.goNamedAuth('Login', context.mounted);
-                              },
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.login_rounded,
-                                ),
-                                title: Text(
-                                  'Cerrar sesión',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                dense: false,
-                              ),
+                            context.goNamedAuth('Login', context.mounted);
+                          },
+                          child: ListTile(
+                            leading: const Icon(
+                              Icons.login_rounded,
                             ),
+                            title: Text(
+                              'Cerrar sesión',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            dense: false,
                           ),
+                        ),
                       ],
                     ),
                   ),
@@ -387,9 +386,9 @@ class _Step3WidgetState extends State<Step3Widget> {
               ),
             ),
             appBar: AppBar(
-              backgroundColor: Color(0xFF00070F),
+              backgroundColor: const Color(0xFF00070F),
               automaticallyImplyLeading: true,
-              actions: [],
+              actions: const [],
               centerTitle: true,
               elevation: 4.0,
             ),
@@ -404,14 +403,14 @@ class _Step3WidgetState extends State<Step3Widget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               30.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: Color(0xFFBF9E75),
+                            borderColor: const Color(0xFFBF9E75),
                             borderRadius: 20.0,
                             borderWidth: 2.0,
                             buttonSize: 40.0,
-                            fillColor: Color(0xFFF3E2CE),
+                            fillColor: const Color(0xFFF3E2CE),
                             icon: Icon(
                               Icons.keyboard_return,
                               color: FlutterFlowTheme.of(context).primaryText,
@@ -426,7 +425,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                           child: Container(
                             width: double.infinity,
                             height: 80.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF00070F),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -435,9 +434,9 @@ class _Step3WidgetState extends State<Step3Widget> {
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Ingreso de datos de localidad',
@@ -446,7 +445,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Source Sans 3',
-                                      color: Color(0xFFFFE1AF),
+                                      color: const Color(0xFFFFE1AF),
                                       fontSize: 25.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -457,7 +456,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -468,7 +467,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Source Sans 3',
-                                  color: Color(0xFFFFE1AF),
+                                  color: const Color(0xFFFFE1AF),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
@@ -480,7 +479,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                     Container(
                       width: 350.0,
                       height: 640.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFF3DDB6),
                       ),
                       child: Column(
@@ -491,15 +490,15 @@ class _Step3WidgetState extends State<Step3Widget> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 5.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 370.0,
                                     child: TextFormField(
                                       controller: _model.txtTimeTextController,
                                       focusNode: _model.txtTimeFocusNode,
                                       autofocus: true,
-                                      autofillHints: [AutofillHints.email],
+                                      autofillHints: const [AutofillHints.email],
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -514,7 +513,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFFE8E6D7),
                                             width: 2.0,
                                           ),
@@ -522,7 +521,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xBC00040F),
                                             width: 2.0,
                                           ),
@@ -548,7 +547,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         filled: true,
-                                        fillColor: Color(0xFFBF9E75),
+                                        fillColor: const Color(0xFFBF9E75),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -572,11 +571,11 @@ class _Step3WidgetState extends State<Step3Widget> {
                               Container(
                                 width: 350.0,
                                 height: 450.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xFFF3DDB6),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -587,11 +586,11 @@ class _Step3WidgetState extends State<Step3Widget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 250.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                final _datePickedDate =
+                                                final datePickedDate =
                                                     await showDatePicker(
                                                   context: context,
                                                   initialDate:
@@ -650,13 +649,13 @@ class _Step3WidgetState extends State<Step3Widget> {
                                                   },
                                                 );
 
-                                                if (_datePickedDate != null) {
+                                                if (datePickedDate != null) {
                                                   safeSetState(() {
                                                     _model.datePicked =
                                                         DateTime(
-                                                      _datePickedDate.year,
-                                                      _datePickedDate.month,
-                                                      _datePickedDate.day,
+                                                      datePickedDate.year,
+                                                      datePickedDate.month,
+                                                      datePickedDate.day,
                                                     );
                                                   });
                                                 }
@@ -675,17 +674,17 @@ class _Step3WidgetState extends State<Step3Widget> {
                                                 });
                                               },
                                               text: 'Fecha Evento',
-                                              icon: Icon(
+                                              icon: const Icon(
                                                 Icons.calendar_month,
                                                 size: 15.0,
                                               ),
                                               options: FFButtonOptions(
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -701,7 +700,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -719,9 +718,9 @@ class _Step3WidgetState extends State<Step3Widget> {
                             ],
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(32.0),
+                              padding: const EdgeInsets.all(32.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -731,7 +730,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.all(6.0),
+                                        padding: const EdgeInsets.all(6.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.safePop();
@@ -741,22 +740,22 @@ class _Step3WidgetState extends State<Step3Widget> {
                                             width: 120.0,
                                             height: 44.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFF3E2CE),
+                                            color: const Color(0xFFF3E2CE),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      color: Color(0xFF00070F),
+                                                      color: const Color(0xFF00070F),
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFBF9E75),
                                               width: 2.0,
                                             ),
@@ -769,13 +768,10 @@ class _Step3WidgetState extends State<Step3Widget> {
                                         onPressed: () async {
                                           if (_model.txtTimeTextController
                                                       .text !=
-                                                  null &&
-                                              _model.txtTimeTextController
-                                                      .text !=
                                                   '') {
                                             if (step3SolicitudEventoPorAplicanteRecord !=
                                                 null) {
-                                              await widget!.prmIdSolicitud!.update(
+                                              await widget.prmIdSolicitud!.update(
                                                   createSolicitudEventoPorAplicanteRecordData(
                                                 fechaEvento: _model
                                                     .txtTimeTextController.text,
@@ -786,7 +782,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                                 queryParameters: {
                                                   'prmIdSolicitud':
                                                       serializeParam(
-                                                    widget!.prmIdSolicitud,
+                                                    widget.prmIdSolicitud,
                                                     ParamType.DocumentReference,
                                                   ),
                                                 }.withoutNulls,
@@ -804,7 +800,7 @@ class _Step3WidgetState extends State<Step3Widget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: Duration(
+                                                duration: const Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -818,22 +814,22 @@ class _Step3WidgetState extends State<Step3Widget> {
                                           width: 120.0,
                                           height: 44.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFFF3E2CE),
+                                          color: const Color(0xFFF3E2CE),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
                                                   .override(
                                                     fontFamily: 'Readex Pro',
-                                                    color: Color(0xFF00070F),
+                                                    color: const Color(0xFF00070F),
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             color: Color(0xFFBF9E75),
                                             width: 2.0,
                                           ),

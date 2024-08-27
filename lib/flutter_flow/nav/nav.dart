@@ -1,20 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -79,38 +72,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'CreateAccount',
           path: '/createAccount',
-          builder: (context, params) => CreateAccountWidget(),
+          builder: (context, params) => const CreateAccountWidget(),
         ),
         FFRoute(
           name: 'AdministradorInventario',
           path: '/administradorInventario',
-          builder: (context, params) => AdministradorInventarioWidget(),
+          builder: (context, params) => const AdministradorInventarioWidget(),
         ),
         FFRoute(
           name: 'Step1',
           path: '/step1',
-          builder: (context, params) => Step1Widget(),
+          builder: (context, params) => const Step1Widget(),
         ),
         FFRoute(
           name: 'Step2',
@@ -151,7 +144,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Resenas',
           path: '/resenas',
-          builder: (context, params) => ResenasWidget(),
+          builder: (context, params) => const ResenasWidget(),
         ),
         FFRoute(
           name: 'ChoseProduct',
@@ -181,6 +174,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['SolicitudEventoPorAplicante'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'RequestSPA',
+          path: '/requestSPA',
+          builder: (context, params) => const RequestSPAWidget(),
+        ),
+        FFRoute(
+          name: 'ProductoPorAplicacionUI',
+          path: '/productoPorAplicacionUI',
+          asyncParams: {
+            'prmSolicitudPorApplicant': getDoc(['SolicitudEventoPorAplicante'],
+                SolicitudEventoPorAplicanteRecord.fromSnapshot),
+          },
+          builder: (context, params) => ProductoPorAplicacionUIWidget(
+            prmSolicitudPorApplicant: params.getParam(
+              'prmSolicitudPorApplicant',
+              ParamType.Document,
             ),
           ),
         )
@@ -416,7 +428,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

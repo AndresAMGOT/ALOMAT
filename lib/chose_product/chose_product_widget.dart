@@ -5,10 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'chose_product_model.dart';
 export 'chose_product_model.dart';
@@ -103,7 +101,7 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            backgroundColor: const Color(0xFF00070F),
             automaticallyImplyLeading: false,
             leading: InkWell(
               splashColor: Colors.transparent,
@@ -113,9 +111,9 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
               onTap: () async {
                 context.pop();
               },
-              child: Icon(
+              child: const Icon(
                 Icons.chevron_left_rounded,
-                color: FlutterFlowTheme.of(context).primaryText,
+                color: Color(0xFFFFE1AF),
                 size: 32.0,
               ),
             ),
@@ -123,10 +121,11 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
               'Atras',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Outfit',
+                    color: const Color(0xFFFFE1AF),
                     letterSpacing: 0.0,
                   ),
             ),
-            actions: [],
+            actions: const [],
             centerTitle: false,
             elevation: 0.0,
           ),
@@ -136,11 +135,11 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12.0),
                     child: Image.network(
-                      widget!.itemParametro!.imagen,
+                      widget.itemParametro!.imagen,
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 230.0,
                       fit: BoxFit.cover,
@@ -148,14 +147,14 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         valueOrDefault<String>(
-                          widget!.itemParametro?.nombre,
+                          widget.itemParametro?.nombre,
                           'No data found',
                         ),
                         style: FlutterFlowTheme.of(context)
@@ -167,23 +166,24 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: Text(
                           valueOrDefault<String>(
-                            widget!.itemParametro?.color,
+                            widget.itemParametro?.color,
                             'No data found',
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ),
                       Text(
                         valueOrDefault<String>(
-                          widget!.itemParametro?.descripcion,
+                          widget.itemParametro?.descripcion,
                           'No data Found',
                         ),
                         style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -249,7 +249,7 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                               _model.resultadoFuntion =
                                   await actions.getSubTotalPorItem(
                                 _model.btnCountValue!,
-                                widget!.itemParametro!.precio,
+                                widget.itemParametro!.precio,
                               );
                               FFAppState().SubTotal = _model.resultadoFuntion!;
                               setState(() {});
@@ -264,10 +264,10 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                   ],
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 24.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 24.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (choseProductSolicitudEventoPorAplicanteRecord !=
@@ -275,15 +275,15 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                           await ProductoPorAplicacionRecord.collection
                               .doc()
                               .set(createProductoPorAplicacionRecordData(
-                                producto: widget!.itemParametro?.reference,
-                                solicitud: widget!.prmSolicitudPorApplicantId,
+                                producto: widget.itemParametro?.reference,
+                                solicitud: widget.prmSolicitudPorApplicantId,
                                 cantidad: _model.btnCountValue,
-                                nombre: widget!.itemParametro?.nombre,
-                                descripcion: widget!.itemParametro?.descripcion,
-                                precio: widget!.itemParametro?.precio,
+                                nombre: widget.itemParametro?.nombre,
+                                descripcion: widget.itemParametro?.descripcion,
+                                precio: widget.itemParametro?.precio,
                                 subTotal: FFAppState().SubTotal,
-                                color: widget!.itemParametro?.color,
-                                imagen: widget!.itemParametro?.imagen,
+                                color: widget.itemParametro?.color,
+                                imagen: widget.itemParametro?.imagen,
                               ));
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
@@ -294,8 +294,8 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                                       .secondaryBackground,
                                 ),
                               ),
-                              duration: Duration(milliseconds: 4000),
-                              backgroundColor: Color(0xFF05D022),
+                              duration: const Duration(milliseconds: 4000),
+                              backgroundColor: const Color(0xFF05D022),
                             ),
                           );
                         }
@@ -306,20 +306,21 @@ class _ChoseProductWidgetState extends State<ChoseProductWidget> {
                         width: 300.0,
                         height: 60.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).headlineSmall.override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0xFFFFE1AF),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .override(
+                              fontFamily: 'Outfit',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
+                            ),
                         elevation: 3.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                        borderSide: const BorderSide(
+                          color: Color(0xFFBF9E75),
+                          width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(40.0),
                       ),
